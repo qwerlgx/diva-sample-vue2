@@ -6,15 +6,15 @@
         <s-header ref="header" @showCode="showCode"></s-header>
       </header>
       <article>
-        <nav>
+        <!-- <nav>
           <s-nav></s-nav>
-        </nav>
-        <div class="router">
+        </nav> -->
+        <!-- <div class="router">
             <router-view v-if="isDivaInit"></router-view>
         </div>
         <div class="codeView" v-show="exampleCode">
           <codeView></codeView>
-        </div>
+        </div> -->
       </article>
     </main>
   </div>
@@ -63,6 +63,7 @@
       this.changeResolution.unsubscribe();
     },
     methods: {
+
       showCode(exampleCode) {
         this.exampleCode = exampleCode;
       },
@@ -75,9 +76,9 @@
       },
     },
     components: {
-      sHeader,
+      //sHeader,
       sNav,
-      codeView
+      //codeView
     },
   }
 </script>

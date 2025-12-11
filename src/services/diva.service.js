@@ -43,4 +43,16 @@ export class DivaService {
   isEmbeddedMode() {
     return window.navigator.userAgent.includes('Mars');
   }
+
+  async playCameraTrack(param){
+    await this.client?.playCameraTrack(param)
+  }
+
+  async applySceneByName(name, options){
+    await this.client?.applyScene(name, options)
+  }
+
+  async setWeather(weather){
+    await this.client?.setWeather(weather)
+  }
 }

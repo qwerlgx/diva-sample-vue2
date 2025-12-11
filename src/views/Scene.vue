@@ -14,6 +14,21 @@
   import contentBlock from "../components/content-block.vue";
   import { data, diva } from "../global";
 
+  window.onmessage = (e) => {
+    if (e.data && e.data.type) {
+      const fun = actions()[e.data.type];
+      console.log(e.data.type);
+      if (fun) {
+        fun.apply(null, e.data.args)
+      }
+    }
+  }
+
+  const actions = () => ({
+    switchScene(index) { diva.client.applyScene(index) },
+    playCameraTrack(param){diva.client.playCameraTrack(param)}
+  })
+
   export default {
     data() {
       return {
