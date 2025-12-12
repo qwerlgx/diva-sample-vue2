@@ -26,7 +26,21 @@
 
   const actions = () => ({
     switchScene(index) { diva.client.applyScene(index) },
-    playCameraTrack(param){diva.client.playCameraTrack(param)}
+    playCameraTrack(param){diva.client.playCameraTrack(param)},
+    //设置时间
+    async setTime(time) {
+      const date = new Date();
+      date.setHours(Number(time), 0, 0, 0);
+      await diva.client.setTime(date);
+    },
+    //设置天气，1：春天，2：夏天，3：秋天，4：冬天
+    async setWether(index){
+      await diva.client.setSunSimulation(true);
+      if(index == 1) await diva.client.setDate(new Date(2025,4,1,12,0,0,0));
+      if(index == 2) await diva.client.setDate(new Date(2025,7,1,12,0,0,0));
+      if(index == 3) await diva.client.setDate(new Date(2025,10,1,12,0,0,0));
+      if(index == 4) await diva.client.setDate(new Date(2025,1,1,12,0,0,0));
+    }
   })
 
   export default {
